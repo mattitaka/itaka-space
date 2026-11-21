@@ -2,11 +2,11 @@
 // Testi definitivi del sito (versione approvata il 21/11/2026).
 export const it = {
   meta: {
-    description: "ItaKA APS è un’associazione di promozione sociale attiva nella Tuscia. Scambi giovanili, formazione e progetti Erasmus+.",
+    description: "ItaKA APS è un’associazione di promozione sociale (APS) della Tuscia. Scambi giovanili, formazione e progetti Erasmus+.",
   },
   home: {
     title: "Tornare dove non si è mai stati.",
-    subtitle: "ItaKA è un’associazione senza scopo di lucro attiva nella Tuscia. Lavoriamo nell’educazione non formale, con i giovani e con gli adulti, e nella mobilità internazionale.",
+    subtitle: "ItaKA è un’associazione di promozione sociale (APS) della Tuscia. Lavoriamo nell’educazione non formale, con i giovani e con gli adulti, e nella mobilità internazionale.",
     journeyFrom: "Tuscia",
     journeyTo: "Europa",
     ctaPrimary: "Partecipa",
@@ -33,7 +33,7 @@ export const it = {
   about: {
     title: "Chi siamo",
     intro: [
-      "ItaKA è un’organizzazione senza scopo di lucro che lavora nell’educazione non formale, nel lavoro con i giovani e nella mobilità internazionale.",
+      "ItaKA è un’associazione senza scopo di lucro che lavora nell’educazione non formale, nel lavoro con i giovani e nella mobilità internazionale.",
       "Promuoviamo cittadinanza attiva, inclusione, educazione emotiva e consapevolezza ambientale, con metodi che fanno imparare in prima persona: gioco di ruolo, gamification, learning by doing. Lavoriamo con giovani e adulti, con chi educa e con chi facilita gruppi.",
     ],
     sections: [
@@ -55,8 +55,8 @@ export const it = {
       { name: "Mattia Alfieri", role: "Presidente e legale rappresentante. Psicologo, cofondatore." },
       { name: "Federico Giordano", role: "Vicepresidente. Comunicazione e gestione dei progetti, cofondatore." },
       { name: "Chiara Latini", role: "Tesoriera. Amministrazione e rendicontazione dei progetti." },
-      { name: "Simeon John Scanlon", role: "Project manager." },
-      { name: "Linda Virgilio", role: "" },
+      { name: "Simeon John Scanlon", role: "Facilitatore e Project manager." },
+      { name: "Linda Virgilio", role: "Project manager" },
     ],
     membersLabel: "Le socie e i soci",
     members: [
