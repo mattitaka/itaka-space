@@ -1,0 +1,54 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Journey from '../components/Journey.astro';
+import Icon from '../components/Icon.astro';
+import NewsList from '../components/NewsList.astro';
+import { routes, type Lang } from '../i18n/ui';
+import { t } from '../data';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = t(lang).home;
+const other: Lang = lang === 'it' ? 'en' : 'it';
+const news = (await getCollection('news')).sort((a, b) => +b.data.date - +a.data.date).slice(0, 3);
+---
+<Base lang={lang} current="home" alternate={routes[other].home}>
+  <section class="hero">
+    <h1 class="display">{c.title}</h1>
+    <Journey from={c.journeyFrom} to={c.journeyTo} />
+    <p class="lead">{c.subtitle}</p>
+    <div class="actions">
+      <a class="btn" href={routes[lang].join}>{c.ctaPrimary}</a>
+      <a class="textlink" href={routes[lang].projects}>{c.ctaSecondary}</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="heading">{c.pillarsTitle}</h2>
+    <div class="blocks">
+      {c.pillars.map((p) => (
+        <div class="block"><Icon name={p.icon} /><h3>{p.word}</h3><p>{p.text}</p></div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="heading">{c.factsTitle}</h2>
+    <div class="keyfacts">
+      {c.facts.map((f) => (
+        <div><Icon name={f.icon} /><p class="n">{f.n}</p><p>{f.t}</p></div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="heading">{c.newsTitle}</h2>
+    <NewsList lang={lang} items={news} />
+    <p><a class="textlink" href={routes[lang].news}>{c.newsAll}</a></p>
+  </section>
+
+  <section class="section">
+    <p class="title">{c.closingTitle}<br />{c.closing}</p>
+    <p><a class="btn" href={routes[lang].join}>{c.ctaPrimary}</a></p>
+  </section>
+</Base>

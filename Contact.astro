@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { rich, routes, ui, type Lang } from '../i18n/ui';
+import { t } from '../data';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = t(lang).contact;
+const other: Lang = lang === 'it' ? 'en' : 'it';
+---
+<Base lang={lang} title={ui[lang].nav.contact} current="contact" alternate={routes[other].contact}>
+  <header class="page-head"><h1 class="title">{c.title}</h1></header>
+  <section class="section">
+    <div class="keyfacts">
+      {c.items.map((i) => (<div><Icon name={i.i} /><p class="k">{i.k}</p><p>{'href' in i && i.href ? <a class="lead" href={i.href}>{i.v}</a> : <span set:html={rich(i.v)} />}</p></div>))}
+    </div>
+  </section>
+</Base>

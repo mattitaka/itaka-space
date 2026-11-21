@@ -1,0 +1,52 @@
+# Configurazione del pannello Pages CMS (app.pagescms.org).
+# I volontari invitati via email vedono solo la sezione "News".
+media:
+  input: public/media
+  output: /media
+  rename: safe
+  categories: [image]
+
+content:
+  - name: news
+    label: News
+    type: collection
+    path: src/content/news
+    filename: "{year}-{month}-{day}-{primary}.md"
+    fields:
+      - name: title
+        label: Titolo
+        type: string
+        required: true
+      - name: date
+        label: Data di pubblicazione
+        type: date
+        required: true
+      - name: lang
+        label: Lingua in cui scrivi
+        type: select
+        required: true
+        options:
+          values:
+            - name: it
+              label: Italiano
+            - name: en
+              label: English
+      - name: autore
+        label: Autore (nome e cognome di chi scrive)
+        type: string
+        required: true
+      - name: riassunto
+        label: Riassunto, una o due frasi (massimo 280 caratteri)
+        type: text
+      - name: immagine
+        label: Foto (facoltativa)
+        type: image
+      - name: alt
+        label: Descrizione della foto, per chi non vede (obbligatoria se c'è una foto)
+        type: string
+      - name: consenso_foto
+        label: Confermo di avere il consenso scritto di tutte le persone riconoscibili nella foto (e dei genitori, per i minori)
+        type: boolean
+      - name: body
+        label: Testo
+        type: rich-text

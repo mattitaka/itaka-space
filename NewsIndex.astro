@@ -1,0 +1,19 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import NewsList from '../components/NewsList.astro';
+import { routes, type Lang } from '../i18n/ui';
+import { t } from '../data';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = t(lang).news;
+const other: Lang = lang === 'it' ? 'en' : 'it';
+const items = (await getCollection('news')).sort((a, b) => +b.data.date - +a.data.date);
+---
+<Base lang={lang} title={c.title} current="news" alternate={routes[other].news}>
+  <header class="page-head">
+    <h1 class="title">{c.title}</h1>
+    <p class="lead">{c.intro}</p>
+  </header>
+  <section class="section"><div style="grid-column: 1 / -1"><NewsList lang={lang} items={items} /></div></section>
+</Base>

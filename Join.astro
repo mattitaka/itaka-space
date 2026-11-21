@@ -1,0 +1,41 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { rich, routes, type Lang } from '../i18n/ui';
+import { t } from '../data';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = t(lang).join;
+const other: Lang = lang === 'it' ? 'en' : 'it';
+---
+<Base lang={lang} title={c.title} current="join" alternate={routes[other].join}>
+  <header class="page-head">
+    <h1 class="title">{c.title}</h1>
+    <p class="lead">{c.lead}</p>
+  </header>
+  <section class="section">
+    <h2 class="heading">{c.waysLabel}</h2>
+    <div class="blocks">
+      {c.ways.map((w) => <div class="block"><Icon name={w.icon} /><h3>{w.b}</h3><p set:html={rich(w.t)} /></div>)}
+    </div>
+  </section>
+  <section class="section">
+    <h2 class="heading">{c.costLabel}</h2>
+    <div class="prose">
+      <p>{c.costIntro}</p>
+      <ul class="plain">{c.cost.map((i) => <li>{i}</li>)}</ul>
+      <p class="note">{c.costNote}</p>
+    </div>
+  </section>
+  <section class="section">
+    <h2 class="heading">{c.stepsLabel}</h2>
+    <ol class="steps">{c.steps.map((s) => <li><p><strong>{s.t}</strong> {s.d}</p></li>)}</ol>
+    <p><a class="btn" href={routes[lang].news}>{c.callsLink}</a></p>
+  </section>
+  <section class="section">
+    <div class="blocks">
+      <div class="block"><Icon name="shield-check" /><h3>{c.safetyLabel}</h3><p>{c.safety}</p></div>
+      <div class="block"><Icon name="heart-handshake" /><h3>{c.fewerLabel}</h3><p>{c.fewer}</p></div>
+    </div>
+  </section>
+</Base>

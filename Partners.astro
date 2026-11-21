@@ -1,0 +1,26 @@
+---
+import Base from '../layouts/Base.astro';
+import { rich, routes, type Lang } from '../i18n/ui';
+import { t } from '../data';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = t(lang).partners;
+const other: Lang = lang === 'it' ? 'en' : 'it';
+---
+<Base lang={lang} title={t(lang).projectsIndex && (lang === 'it' ? 'Partner' : 'Partners')} current="partners" alternate={routes[other].partners}>
+  <header class="page-head">
+    <h1 class="title">{c.title}</h1>
+    <p class="lead">{c.text}</p>
+  </header>
+  <section class="section">
+    <div class="table-scroll" style="grid-column: 1 / -1">
+      <table>
+        <thead><tr>{c.cols.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+        <tbody>{c.rows.map((r) => <tr>{r.map((cell) => <td set:html={rich(cell)} />)}</tr>)}</tbody>
+      </table>
+    </div>
+  </section>
+  <section class="section">
+    <p class="closing" style="grid-column: 1 / -1">{c.closing} <a href="mailto:info@itaka.space">info@itaka.space</a></p>
+  </section>
+</Base>

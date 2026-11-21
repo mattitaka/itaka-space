@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+import { routes, type Lang } from '../i18n/ui';
+import { t } from '../data';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = t(lang);
+const other: Lang = lang === 'it' ? 'en' : 'it';
+const keys = ['heart', 'fot', 'edit'] as const;
+---
+<Base lang={lang} title={c.projectsIndex.title} current="projects" alternate={routes[other].projects}>
+  <header class="page-head">
+    <h1 class="title">{c.projectsIndex.title}</h1>
+    <p class="lead">{c.projectsIndex.intro}</p>
+  </header>
+  <section class="section">
+    <ul class="rows" style="grid-column: 1 / -1">
+      {keys.map((k) => {
+        const p = c.projects[k];
+        return (
+          <li>
+            <p class="kicker">{p.kind}</p>
+            <h2 class="row-title"><a href={routes[lang][k]}>{p.name}</a></h2>
+            <p class="lead">{p.lead}</p>
+          </li>
+        );
+      })}
+    </ul>
+  </section>
+</Base>

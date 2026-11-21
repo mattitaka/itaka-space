@@ -1,0 +1,15 @@
+---
+import Base from '../layouts/Base.astro';
+import { rich, routes, type Lang } from '../i18n/ui';
+import { t } from '../data';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = t(lang).privacy;
+const other: Lang = lang === 'it' ? 'en' : 'it';
+---
+<Base lang={lang} title={c.title} current="privacy" alternate={routes[other].privacy}>
+  <header class="page-head"><h1 class="title">{c.title}</h1></header>
+  <section class="section">
+    <div class="prose" style="grid-column: 1 / -1">{c.paras.map((p) => <p set:html={rich(p)} />)}</div>
+  </section>
+</Base>

@@ -1,0 +1,29 @@
+---
+import Logo from './Logo.astro';
+import { nav, routes, ui, type Lang } from '../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = ui[lang];
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <a class="logo" href={routes[lang].home} aria-label={s.homeLabel}><Logo title="ITAKA" /></a>
+        <p style="margin-top:1.25rem">{s.footerLine}<br />{`${s.seat}: Strada Canepina Soriano 18, 01030 Canepina (VT)`}</p>
+        <p>{`${s.taxCode} 90151290567`}<br />{s.runts}</p>
+      </div>
+      <ul>
+        {nav.map((k) => <li><a href={routes[lang][k]}>{s.nav[k]}</a></li>)}
+      </ul>
+      <ul>
+        <li><a href="mailto:info@itaka.space">info@itaka.space</a></li>
+        <li><a href="https://instagram.com/itaka_aps">Instagram</a></li>
+        <li><a href={routes[lang].transparency}>{s.nav.transparency}</a></li>
+        <li><a href={routes[lang].privacy}>{s.nav.privacy}</a></li>
+      </ul>
+    </div>
+    <p class="bottom">© {year} ItaKA APS</p>
+  </div>
+</footer>

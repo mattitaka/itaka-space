@@ -1,0 +1,13 @@
+---
+// L'andata e il ritorno: dalla Tuscia all'Europa in linea retta, poi indietro lungo una curva,
+// come il piede della A nel logotipo.
+interface Props { from: string; to: string }
+const { from, to } = Astro.props;
+---
+<svg class="journey" viewBox="0 0 1000 170" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <path class="route" pathLength="1" d="M 40 70 H 960 Q 500 230 40 70" />
+  <circle class="stop" cx="40" cy="70" />
+  <text class="place" x="40" y="40">{from}</text>
+  <circle class="stop far" cx="960" cy="70" />
+  <text class="place far" x="960" y="40" text-anchor="end">{to}</text>
+</svg>

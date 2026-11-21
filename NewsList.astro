@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { formatDate, routes, type Lang } from '../i18n/ui';
+import { t } from '../data';
+interface Props { lang: Lang; items: CollectionEntry<'news'>[] }
+const { lang, items } = Astro.props;
+const c = t(lang).news;
+---
+{items.length === 0 ? <p class="muted">{c.empty}</p> : (
+  <ol class="newslist">
+    {items.map((n) => (
+      <li>
+        <time datetime={n.data.date.toISOString().slice(0, 10)}>{formatDate(n.data.date, lang)}</time>
+        <div class="body">
+          <h3 lang={n.data.lang}>
+            <a href={`${routes[lang].news}${n.id}/`}>{n.data.title}</a>
+            {n.data.lang !== lang && <span class="badge" lang={lang}>{c.otherLang}</span>}
+          </h3>
+          {n.data.riassunto && <p lang={n.data.lang}>{n.data.riassunto}</p>}
+          <p class="muted small">{`${c.by} ${n.data.autore}`}</p>
+        </div>
+      </li>
+    ))}
+  </ol>
+)}

@@ -1,0 +1,29 @@
+---
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import { nav, routes, ui, type Lang, type RouteKey } from '../i18n/ui';
+interface Props { lang: Lang; current?: RouteKey; alternate: string }
+const { lang, current, alternate } = Astro.props;
+const s = ui[lang];
+const isCurrent = (k: RouteKey) => current === k || (k === 'projects' && ['heart', 'fot', 'edit'].includes(current ?? ''));
+---
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href={routes[lang].home} aria-label={s.homeLabel}><Logo title="ITAKA" /></a>
+    <nav class="nav-desktop" aria-label="Menu">
+      {nav.map((k) => <a href={routes[lang][k]} aria-current={isCurrent(k) ? 'page' : undefined}>{s.nav[k]}</a>)}
+    </nav>
+    <div class="header-tools">
+      <a class="pill" href={alternate} hreflang={s.otherLangCode} lang={s.otherLangCode} aria-label={s.langLabel} title={s.otherLang}>{s.langShort}</a>
+      <button class="pill theme-btn" type="button" data-theme-toggle data-label-dark={s.themeDark} data-label-light={s.themeLight} aria-label={s.themeDark} aria-pressed="false">
+        <Icon name="moon" class="icon i-moon" /><Icon name="sun" class="icon i-sun" />
+      </button>
+      <details class="menu">
+        <summary>{s.menu}</summary>
+        <nav aria-label="Menu">
+          {nav.map((k) => <a href={routes[lang][k]} aria-current={isCurrent(k) ? 'page' : undefined}>{s.nav[k]}</a>)}
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>

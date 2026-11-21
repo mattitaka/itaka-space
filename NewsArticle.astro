@@ -1,0 +1,29 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { formatDate, routes, type Lang } from '../i18n/ui';
+import { t } from '../data';
+interface Props { lang: Lang; entry: CollectionEntry<'news'> }
+const { lang, entry } = Astro.props;
+const c = t(lang).news;
+const other: Lang = lang === 'it' ? 'en' : 'it';
+const { Content } = await render(entry);
+const d = entry.data;
+---
+<Base lang={lang} title={d.title} description={d.riassunto ?? undefined} current="news" alternate={`${routes[other].news}${entry.id}/`}>
+  <header class="page-head">
+    <p class="kicker"><time datetime={d.date.toISOString().slice(0, 10)}>{formatDate(d.date, lang)}</time>{`, ${c.by} ${d.autore}`}</p>
+    <h1 class="title" lang={d.lang}>{d.title}</h1>
+    {d.lang !== lang && <p class="muted">{c.langNote}</p>}
+  </header>
+  <section class="section">
+    <article class="article" lang={d.lang} style="grid-column: 1 / -1">
+      {d.riassunto && <p class="lead">{d.riassunto}</p>}
+      {d.immagine && (
+        <figure><img src={d.immagine} alt={d.alt ?? ''} loading="lazy" decoding="async" /></figure>
+      )}
+      <Content />
+    </article>
+    <p style="grid-column: 1 / -1"><a class="textlink" href={routes[lang].news}>{c.back}</a></p>
+  </section>
+</Base>

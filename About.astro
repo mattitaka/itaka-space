@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { rich, routes, type Lang } from '../i18n/ui';
+import { t } from '../data';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = t(lang).about;
+const other: Lang = lang === 'it' ? 'en' : 'it';
+---
+<Base lang={lang} title={c.title} current="about" alternate={routes[other].about}>
+  <header class="page-head">
+    <h1 class="title">{c.title}</h1>
+    <div class="prose">{c.intro.map((p, i) => <p class={i === 0 ? 'lead' : ''}>{p}</p>)}</div>
+  </header>
+  {c.sections.map((s) => (
+    <section class="section">
+      <h2 class="heading">{s.label}</h2>
+      <div class="prose">{s.paras.map((p) => <p set:html={rich(p)} />)}</div>
+    </section>
+  ))}
+  <section class="section">
+    <h2 class="heading">{c.valuesLabel}</h2>
+    <div class="blocks three">
+      {c.values.map((v) => <div class="block"><Icon name={v.icon} /><h3>{v.b}</h3><p>{v.t}</p></div>)}
+    </div>
+  </section>
+  <section class="section">
+    <h2 class="heading">{c.peopleLabel}</h2>
+    <ul class="people">
+      {c.people.map((p) => <li><p class="name">{p.name}</p>{p.role && <p set:html={rich(p.role)} />}</li>)}
+    </ul>
+  </section>
+  <section class="section">
+    <h2 class="heading">{c.membersLabel}</h2>
+    <ul class="members">{c.members.map((m) => <li>{m}</li>)}</ul>
+  </section>
+  <section class="section">
+    <p class="title">{c.closing}</p>
+    <p><a class="btn" href={routes[lang].join}>{t(lang).home.ctaPrimary}</a></p>
+  </section>
+</Base>

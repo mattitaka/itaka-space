@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import { rich, routes, ui, type Lang } from '../i18n/ui';
+import { t } from '../data';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = t(lang).transparency;
+const other: Lang = lang === 'it' ? 'en' : 'it';
+---
+<Base lang={lang} title={ui[lang].nav.transparency} current="transparency" alternate={routes[other].transparency}>
+  <header class="page-head">
+    <h1 class="title">{c.title}</h1>
+    <p class="lead">{c.text}</p>
+  </header>
+  <section class="section">
+    <h2 class="heading">{c.legalLabel}</h2>
+    <dl class="facts">{c.legal.map(([k, v]) => (<><dt>{k}</dt><dd>{v}</dd></>))}</dl>
+  </section>
+  <section class="section">
+    <h2 class="heading">{c.contribLabel}</h2>
+    <div style="display:grid;gap:1rem;min-width:0">
+      <p class="muted small">{c.contribNote}</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr>{c.contribCols.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{c.contribRows.map((r) => <tr>{r.map((cell) => <td set:html={rich(cell)} />)}</tr>)}</tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <h2 class="heading">{c.docsLabel}</h2>
+    <p set:html={rich(c.docs)} />
+  </section>
+</Base>
