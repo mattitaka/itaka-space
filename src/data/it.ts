@@ -157,7 +157,7 @@ export const it = {
     rows: [
       ["IKReON", "Slovacchia", "HEART, Fields of Tomorrow", "/img/partner/ikreon.svg"],
       ["Federation of Youth Clubs of Armenia (FYCA)", "Armenia", "HEART, Fields of Tomorrow", "/img/partner/fyca.svg"],
-      ["VšĮ uMunthu", "Lituania", "HEART, Fields of Tomorrow"],
+      ["Innoved Lietuva", "Lituania", "HEART, Fields of Tomorrow", "/img/partner/innoved-lietuva.svg"],
       ["Mountain Sporting Club Azot", "Macedonia del Nord", "HEART", "/img/partner/azot.svg"],
       ["Circle of Sustainable Europe", "Belgio", "Fields of Tomorrow"],
       ["Fibonacci Wellness Hub", "Romania", "Fields of Tomorrow"],
