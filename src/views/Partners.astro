@@ -13,12 +13,16 @@ const other: Lang = lang === 'it' ? 'en' : 'it';
     <p class="lead">{c.text}</p>
   </header>
   <section class="section">
-    <div class="table-scroll" style="grid-column: 1 / -1">
-      <table>
-        <thead><tr>{c.cols.map((h) => <th scope="col">{h}</th>)}</tr></thead>
-        <tbody>{c.rows.map((r) => <tr>{r.map((cell) => <td set:html={rich(cell)} />)}</tr>)}</tbody>
-      </table>
-    </div>
+    <ul class="partners">
+      {c.rows.map((r) => (
+        <li>
+          <span class="logo-tile">{r[3] ? <img src={r[3]} alt={`Logo ${r[0]}`} loading="lazy" decoding="async" /> : <span class="logo-name" aria-hidden="true">{r[0]}</span>}</span>
+          <p class="name">{r[0]}</p>
+          <p class="muted small">{r[1]}</p>
+          <p class="small">{r[2]}</p>
+        </li>
+      ))}
+    </ul>
   </section>
   <section class="section">
     <p class="closing" style="grid-column: 1 / -1">{c.closing} <a href="mailto:info@itaka.space">info@itaka.space</a></p>

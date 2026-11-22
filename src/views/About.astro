@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
+import Avatar from '../components/Avatar.astro';
 import { rich, routes, type Lang } from '../i18n/ui';
 import { t } from '../data';
 interface Props { lang: Lang }
@@ -28,7 +29,7 @@ const other: Lang = lang === 'it' ? 'en' : 'it';
   <section class="section">
     <h2 class="heading">{c.peopleLabel}</h2>
     <ul class="people">
-      {c.people.map((p) => <li><p class="name">{p.name}</p>{p.role && <p set:html={rich(p.role)} />}</li>)}
+      {c.people.map((p) => <li class="person"><Avatar name={p.name} photo={(p as any).photo} /><div><p class="name">{p.name}</p>{p.role && <p set:html={rich(p.role)} />}</div></li>)}
     </ul>
   </section>
   <section class="section">

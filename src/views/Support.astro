@@ -1,0 +1,50 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { routes, type Lang } from '../i18n/ui';
+import { t } from '../data';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = t(lang).support;
+const other: Lang = lang === 'it' ? 'en' : 'it';
+---
+<Base lang={lang} title={c.title} current="support" alternate={routes[other].support} description={c.lead}>
+  <header class="page-head">
+    <h1 class="title">{c.title}</h1>
+    <p class="lead">{c.lead}</p>
+    <div class="actions">
+      <a class="btn" href="#cinque-per-mille">{c.jump5}</a>
+      <a class="btn btn-outline" href="#donazioni">{c.jumpDonate}</a>
+    </div>
+  </header>
+
+  <section class="section" id="cinque-per-mille">
+    <h2 class="heading">{c.fiveLabel}</h2>
+    <div class="support-grid">
+      <div class="prose">
+        <p class="lead">{c.fiveIntro}</p>
+        <ol class="steps">{c.fiveSteps.map((s) => <li><p>{s}</p></li>)}</ol>
+        <p class="muted small">{c.fiveNote}</p>
+      </div>
+      <div class="pay-card">
+        <p class="kicker">{c.cfLabel}</p>
+        <p class="pay-code">{c.cf}</p>
+        <button class="btn" type="button" data-copy={c.cf} data-copied={c.copied}>{c.copyCf}</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="donazioni">
+    <h2 class="heading">{c.donateLabel}</h2>
+    <div class="support-grid">
+      <div class="prose">
+        <p class="lead">{c.donateIntro}</p>
+        <p class="muted small">{c.donateNote}</p>
+      </div>
+      <div class="pay-card">
+        <dl class="facts">{c.bank.map(([k, v]) => (<><dt>{k}</dt><dd>{v}</dd></>))}</dl>
+        <button class="btn" type="button" data-copy={c.iban} data-copied={c.copied}>{c.copyIban}</button>
+      </div>
+    </div>
+  </section>
+</Base>

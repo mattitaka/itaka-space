@@ -42,6 +42,28 @@ const news = (await getCollection('news')).sort((a, b) => +b.data.date - +a.data
   </section>
 
   <section class="section">
+    <h2 class="heading">{c.projectsTitle}</h2>
+    <ul class="cards">
+      {(['heart', 'fot', 'edit'] as const).map((k) => {
+        const p = t(lang).projects[k] as any;
+        return (
+          <li class="card">
+            <a href={routes[lang][k]}>
+              {p.image
+                ? <img src={p.image} alt={p.imageAlt} width="1600" height="900" loading="lazy" decoding="async" />
+                : <span class="card-mark" aria-hidden="true">{p.name}</span>}
+              <span class="kicker">{p.kind}</span>
+              <span class="card-title">{p.name}</span>
+            </a>
+            <p>{p.lead}</p>
+          </li>
+        );
+      })}
+    </ul>
+    <p><a class="textlink" href={routes[lang].projects}>{c.projectsMore}</a></p>
+  </section>
+
+  <section class="section">
     <h2 class="heading">{c.newsTitle}</h2>
     <NewsList lang={lang} items={news} />
     <p><a class="textlink" href={routes[lang].news}>{c.newsAll}</a></p>

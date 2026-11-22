@@ -1,6 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
+import FormEmbed from '../components/FormEmbed.astro';
+import { MEMBERSHIP_FORM_URL } from '../site';
 import { rich, routes, type Lang } from '../i18n/ui';
 import { t } from '../data';
 interface Props { lang: Lang }
@@ -31,6 +33,15 @@ const other: Lang = lang === 'it' ? 'en' : 'it';
     <h2 class="heading">{c.stepsLabel}</h2>
     <ol class="steps">{c.steps.map((s) => <li><p><strong>{s.t}</strong> {s.d}</p></li>)}</ol>
     <p><a class="btn" href={routes[lang].news}>{c.callsLink}</a></p>
+  </section>
+  <section class="section" id="diventa-socio">
+    <h2 class="heading">{c.member.label}</h2>
+    <div class="prose">
+      <p class="lead">{c.member.intro}</p>
+      {MEMBERSHIP_FORM_URL
+        ? <FormEmbed src={MEMBERSHIP_FORM_URL} title={c.member.formTitle} note={c.member.formNote} button={c.member.formButton} lang={lang} />
+        : <p class="note">{c.member.fallback}</p>}
+    </div>
   </section>
   <section class="section">
     <div class="blocks">

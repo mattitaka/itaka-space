@@ -3,29 +3,29 @@ export const langs: Lang[] = ['it', 'en'];
 
 export type RouteKey =
   | 'home' | 'about' | 'projects' | 'heart' | 'fot' | 'edit'
-  | 'partners' | 'news' | 'join' | 'transparency' | 'contact' | 'privacy';
+  | 'partners' | 'news' | 'join' | 'support' | 'transparency' | 'contact' | 'privacy';
 
 export const routes: Record<Lang, Record<RouteKey, string>> = {
   it: {
     home: '/it/', about: '/it/chi-siamo/', projects: '/it/progetti/',
     heart: '/it/progetti/heart/', fot: '/it/progetti/fields-of-tomorrow/', edit: '/it/progetti/edit/',
-    partners: '/it/partner/', news: '/it/news/', join: '/it/partecipa/',
+    partners: '/it/partner/', news: '/it/news/', join: '/it/partecipa/', support: '/it/sostienici/',
     transparency: '/it/trasparenza/', contact: '/it/contatti/', privacy: '/it/privacy/',
   },
   en: {
     home: '/en/', about: '/en/about/', projects: '/en/projects/',
     heart: '/en/projects/heart/', fot: '/en/projects/fields-of-tomorrow/', edit: '/en/projects/edit/',
-    partners: '/en/partners/', news: '/en/news/', join: '/en/get-involved/',
+    partners: '/en/partners/', news: '/en/news/', join: '/en/get-involved/', support: '/en/support-us/',
     transparency: '/en/transparency/', contact: '/en/contact/', privacy: '/en/privacy/',
   },
 };
 
-export const nav: RouteKey[] = ['about', 'projects', 'partners', 'news', 'join', 'contact'];
+export const nav: RouteKey[] = ['about', 'projects', 'partners', 'news', 'join', 'support', 'contact'];
 
 export const ui = {
   it: {
     htmlLang: 'it',
-    nav: { about: 'Chi siamo', projects: 'Progetti', partners: 'Partner', news: 'News', join: 'Partecipa', contact: 'Contatti', transparency: 'Trasparenza', privacy: 'Privacy' } as Record<string, string>,
+    nav: { about: 'Chi siamo', projects: 'Progetti', partners: 'Partner', news: 'News', join: 'Partecipa', support: 'Sostienici', contact: 'Contatti', transparency: 'Trasparenza', privacy: 'Privacy' } as Record<string, string>,
     skip: 'Vai al contenuto',
     menu: 'Menu',
     otherLang: 'English',
@@ -43,7 +43,7 @@ export const ui = {
   },
   en: {
     htmlLang: 'en',
-    nav: { about: 'About', projects: 'Projects', partners: 'Partners', news: 'News', join: 'Get involved', contact: 'Contact', transparency: 'Transparency', privacy: 'Privacy' } as Record<string, string>,
+    nav: { about: 'About', projects: 'Projects', partners: 'Partners', news: 'News', join: 'Get involved', support: 'Support us', contact: 'Contact', transparency: 'Transparency', privacy: 'Privacy' } as Record<string, string>,
     skip: 'Skip to content',
     menu: 'Menu',
     otherLang: 'Italiano',

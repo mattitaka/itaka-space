@@ -257,3 +257,56 @@ strong, b { font-weight: 600; }
 /* elenco soci */
 .members { list-style: none; padding: 0; columns: 3 14rem; column-gap: 3rem; }
 .members li { padding-block: 0.45rem; border-top: 1px solid var(--hair); break-inside: avoid; }
+
+/* immagini: card dei progetti in home */
+.cards { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.5rem, 3vw, 2.5rem); }
+.card a { display: grid; gap: 0.6rem; text-decoration: none; }
+.card img, .card-mark { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 4px; }
+.card-mark { display: grid; place-items: center; background: var(--ink); color: var(--paper); font-weight: 500; font-size: clamp(2rem, 1.5rem + 2vw, 3rem); letter-spacing: 0.08em; }
+.card-title { font-weight: 600; font-size: 1.35rem; text-transform: uppercase; letter-spacing: 0.04em; }
+.card a:hover .card-title { text-decoration: underline; text-decoration-thickness: 2px; }
+.card p { margin-top: 0.5rem; }
+@media (max-width: 860px) { .cards { grid-template-columns: 1fr; } }
+
+/* elenco progetti con immagine */
+.row-with-image { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); column-gap: clamp(1.5rem, 4vw, 3rem); align-items: center; }
+.row-image { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 4px; }
+.row-body { display: grid; gap: 0.6rem; }
+@media (max-width: 760px) { .row-with-image { grid-template-columns: 1fr; } }
+
+/* immagine nella pagina progetto */
+.project-image { width: 100%; max-width: 60rem; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 4px; margin-top: 1rem; }
+
+/* persone con foto */
+.person { display: grid; grid-template-columns: auto 1fr; gap: 1.1rem; align-items: center; }
+.avatar { width: 5.5rem; height: 5.5rem; border-radius: 50%; object-fit: cover; }
+.avatar-initials { display: grid; place-items: center; border: 1.5px solid var(--ink); font-weight: 600; letter-spacing: 0.06em; font-size: 1.15rem; }
+
+/* partner con logo */
+.partners { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.5rem, 3vw, 2.5rem); }
+.partners .name { font-weight: 600; margin-top: 0.8rem; }
+.logo-tile { display: grid; place-items: center; height: 8rem; padding: 1.2rem 1.6rem; background: #ffffff; border: 1px solid var(--hair); border-radius: 4px; }
+.logo-tile img { max-height: 100%; max-width: 100%; width: auto; height: auto; object-fit: contain; }
+.logo-name { color: #101923; font-weight: 600; text-align: center; font-size: 0.95rem; letter-spacing: 0.04em; text-transform: uppercase; }
+@media (max-width: 860px) { .partners { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .partners { grid-template-columns: 1fr; } }
+
+/* Sostienici */
+.btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+.btn-outline:hover { background: var(--ink); color: var(--paper); }
+.support-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: clamp(1.5rem, 4vw, 3.5rem); align-items: start; }
+.pay-card { border: var(--stroke) solid var(--ink); border-radius: 4px; padding: clamp(1.25rem, 3vw, 2rem); display: grid; gap: 1rem; justify-items: start; }
+.pay-card .facts { width: 100%; grid-template-columns: minmax(6rem, 8rem) 1fr; }
+.pay-card dd { overflow-wrap: anywhere; }
+.pay-code { font-weight: 600; font-size: clamp(1.8rem, 1.4rem + 1.6vw, 2.6rem); letter-spacing: 0.06em; font-variant-numeric: tabular-nums; }
+@media (max-width: 860px) { .support-grid { grid-template-columns: 1fr; } }
+
+/* modulo di iscrizione */
+.form-embed { border: 1px dashed var(--ink); border-radius: 4px; padding: 1.25rem 1.5rem; display: grid; gap: 0.8rem; }
+.form-frame { width: 100%; min-height: 1600px; border: 0; background: #ffffff; border-radius: 4px; }
+
+/* con sette voci il menu passa prima alla versione compatta */
+@media (max-width: 1080px) { .nav-desktop { display: none; } .menu { display: block; } }
+.logo-tile img { max-height: 5.5rem; max-width: 100%; }
+button.btn { font: inherit; font-weight: 600; border: 0; cursor: pointer; }
+button.btn-outline { border: 1.5px solid var(--ink); }

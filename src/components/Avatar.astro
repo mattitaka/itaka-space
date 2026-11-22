@@ -1,0 +1,9 @@
+---
+// Foto della persona, oppure le iniziali se la foto non c'è.
+interface Props { name: string; photo?: string }
+const { name, photo } = Astro.props;
+const initials = name.split(' ').filter(Boolean).map((p) => p[0]).slice(0, 2).join('').toUpperCase();
+---
+{photo
+  ? <img class="avatar" src={photo} alt={name} width="120" height="120" loading="lazy" decoding="async" />
+  : <span class="avatar avatar-initials" aria-hidden="true">{initials}</span>}

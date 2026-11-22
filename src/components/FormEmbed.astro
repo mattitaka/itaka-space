@@ -1,0 +1,9 @@
+---
+// Google Form caricato solo dopo un clic: chi non lo apre non scambia dati con Google.
+interface Props { src: string; title: string; note: string; button: string; lang: string }
+const { src, title, note, button, lang } = Astro.props;
+---
+<div class="form-embed" data-form-embed data-src={src} data-title={title}>
+  <p>{note}</p>
+  <p><button class="btn" type="button" data-form-load lang={lang}>{button}</button></p>
+</div>

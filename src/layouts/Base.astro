@@ -9,7 +9,24 @@ import { DRAFT } from '../site';
 interface Props { lang: Lang; title?: string; description?: string; current?: RouteKey; alternate: string }
 const { lang, title, description, current, alternate } = Astro.props;
 const s = ui[lang];
-const fullTitle = title ? `${title} · ItaKA APS` : 'ItaKA APS';
+const fullTitle = title ? `${title} · ItaKA APS` : `ItaKA APS · ${t(lang).home.title.replace(/\.$/, '')}`;
+const ogImage = new URL('/og.png', Astro.site);
+const orgLd = {
+  '@context': 'https://schema.org',
+  '@type': 'NGO',
+  name: 'ItaKA APS',
+  alternateName: 'UliXes APS',
+  url: 'https://itaka.space/',
+  logo: 'https://itaka.space/logo.png',
+  image: ogImage.href,
+  description: t(lang).meta.description,
+  email: 'info@itaka.space',
+  foundingDate: '2023-07-17',
+  taxID: '90151290567',
+  address: { '@type': 'PostalAddress', streetAddress: 'Strada Canepina Soriano 18', postalCode: '01030', addressLocality: 'Canepina', addressRegion: 'VT', addressCountry: 'IT' },
+  areaServed: 'Tuscia, Italia',
+  sameAs: ['https://instagram.com/itaka_aps'],
+};
 const desc = description ?? t(lang).meta.description;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const altUrl = new URL(alternate, Astro.site);
@@ -29,8 +46,16 @@ const altUrl = new URL(alternate, Astro.site);
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={desc} />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ItaKA APS" />
+    <meta property="og:locale" content={lang === 'it' ? 'it_IT' : 'en_GB'} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="ItaKA APS" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:url" content={canonical} />
     {DRAFT && <meta name="robots" content="noindex" />}
+    {current === 'home' && <script type="application/ld+json" set:html={JSON.stringify(orgLd)} />}
     <script is:inline>
       (function () { try { if (localStorage.getItem('itaka-theme') === 'dark') document.documentElement.setAttribute('data-itaka-theme', 'dark'); } catch (e) {} })();
     </script>
@@ -66,6 +91,38 @@ const altUrl = new URL(alternate, Astro.site);
           sync();
         });
         sync();
+      })();
+      (function () {
+        if (window.__itakaTools) return; window.__itakaTools = true;
+        document.addEventListener('click', function (e) {
+          var copy = e.target.closest && e.target.closest('[data-copy]');
+          if (copy) {
+            var text = copy.getAttribute('data-copy');
+            var done = function () {
+              var label = copy.textContent;
+              copy.textContent = copy.getAttribute('data-copied') || 'OK';
+              setTimeout(function () { copy.textContent = label; }, 1800);
+            };
+            var fallback = function () {
+              var ta = document.createElement('textarea'); ta.value = text; ta.setAttribute('readonly', '');
+              ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select();
+              try { if (document.execCommand('copy')) done(); } catch (err) {}
+              document.body.removeChild(ta);
+            };
+            if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, fallback); else fallback();
+            return;
+          }
+          var load = e.target.closest && e.target.closest('[data-form-load]');
+          if (load) {
+            var box = load.closest('[data-form-embed]');
+            var frame = document.createElement('iframe');
+            frame.src = box.getAttribute('data-src');
+            frame.title = box.getAttribute('data-title');
+            frame.loading = 'lazy';
+            frame.className = 'form-frame';
+            box.replaceWith(frame);
+          }
+        });
       })();
     </script>
   </body>
