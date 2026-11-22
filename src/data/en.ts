@@ -201,7 +201,7 @@ export const en = {
       formTitle: "Membership application",
       formNote: "The form is hosted by Google Forms. It only loads if you press the button: until then, no data is exchanged with Google.",
       formButton: "Show the form",
-      fallback: "The online form is coming soon. In the meantime you can apply by writing to info@itaka.space.",
+      fallback: "The online form is coming soon. In the meantime you can apply by writing to ciao@itaka.space.",
     },
   },
   support: {
@@ -231,7 +231,7 @@ export const en = {
     ],
     iban: "IT97D0306909606100000410964",
     copyIban: "Copy the IBAN",
-    donateNote: "Donations to ItaKA APS, a third-sector organisation, may qualify for the tax benefits of article 83 of Italy’s Third Sector Code (Legislative Decree 117/2017) when made by traceable means such as a bank transfer. If you need a receipt, write to info@itaka.space.",
+    donateNote: "Donations to ItaKA APS, a third-sector organisation, may qualify for the tax benefits of article 83 of Italy’s Third Sector Code (Legislative Decree 117/2017) when made by traceable means such as a bank transfer. If you need a receipt, write to ciao@itaka.space.",
     copied: "Copied",
   },
   transparency: {
@@ -255,12 +255,12 @@ export const en = {
       ["Erasmus+ National Agency INDIRE", "EDIT, 2025-1-IT02-KA122-ADU-000315079", "€49,384.00", "€39,507.20"],
     ],
     docsLabel: "Documents",
-    docs: "The statute and deed of incorporation, in Italian, are available on request at info@itaka.space.",
+    docs: "The statute and deed of incorporation, in Italian, are available on request at ciao@itaka.space.",
   },
   contact: {
     title: "Write to us. We answer.",
     items: [
-      { i: "mail", k: "Email", v: "info@itaka.space", href: "mailto:info@itaka.space" },
+      { i: "mail", k: "Email", v: "ciao@itaka.space", href: "mailto:ciao@itaka.space" },
       { i: "at-sign", k: "Instagram", v: "@itaka_aps", href: "https://instagram.com/itaka_aps" },
       { i: "map-pin", k: "Registered office", v: "Strada Canepina Soriano 18, 01030 Canepina (VT), Italy" },
     ],
@@ -268,13 +268,13 @@ export const en = {
   privacy: {
     title: "Privacy",
     paras: [
-      "**Data controller.** ItaKA APS, Italian tax code 90151290567, registered office at Strada Canepina Soriano 18, 01030 Canepina (VT), Italy. Contact: info@itaka.space.",
+      "**Data controller.** ItaKA APS, Italian tax code 90151290567, registered office at Strada Canepina Soriano 18, 01030 Canepina (VT), Italy. Contact: ciao@itaka.space.",
       "**No cookies, no tracking.** This site uses no cookies, analytics, advertising or services that profile visitors. Fonts are hosted on the site itself. The only information saved in your browser is your choice of light or dark theme, and it stays on your device.",
       "**Technical browsing data.** The site is hosted by Cloudflare, which processes technical data such as IP address and browser type to run the site and protect it from abuse. The legal basis is the association’s legitimate interest in offering a secure site. Any transfer of data outside the European Union takes place with the safeguards set out in Regulation (EU) 2016/679.",
       "**If you write to us.** We use your email address and what you send us only to reply, and keep it only as long as needed to do so.",
       "**Membership application.** The membership form is built with Google Forms and only loads if you open it. The data you enter (personal and contact details, motivation) is used to review your application and, if accepted, to keep the register of members, as required by the statute and the Third Sector Code. We keep it for the duration of membership and for the periods required by law. Google processes it as a service provider on behalf of the association.",
       "**External links.** Links to Instagram and other sites lead to services with their own privacy rules.",
-      "**Your rights.** You can ask to access, correct or delete your data, restrict its processing or object to it, by writing to info@itaka.space (articles 15–21 of Regulation (EU) 2016/679). You can also lodge a complaint with the Italian data protection authority (Garante per la protezione dei dati personali).",
+      "**Your rights.** You can ask to access, correct or delete your data, restrict its processing or object to it, by writing to ciao@itaka.space (articles 15–21 of Regulation (EU) 2016/679). You can also lodge a complaint with the Italian data protection authority (Garante per la protezione dei dati personali).",
       "Last updated: 21 November 2026.",
     ],
   },

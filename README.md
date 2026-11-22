@@ -77,7 +77,7 @@ Puoi scrivere in italiano o in inglese. Una news in una sola lingua compare in e
 ## Modulo per associarsi
 
 La pagina Partecipa contiene la domanda di ammissione, un Google Form che si carica solo dopo un clic.
-Il link del modulo sta in `src/site.ts`, alla voce `MEMBERSHIP_FORM_URL`. Finché è vuota, la pagina invita a scrivere a info@itaka.space.
+Il link del modulo sta in `src/site.ts`, alla voce `MEMBERSHIP_FORM_URL`. Finché è vuota, la pagina invita a scrivere a ciao@itaka.space.
 Il modulo si crea con lo script `crea-modulo-iscrizione.gs` (istruzioni all'inizio del file).
 
 ## Modificare i testi

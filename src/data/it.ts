@@ -201,7 +201,7 @@ export const it = {
       formTitle: "Domanda di ammissione",
       formNote: "Il modulo è ospitato da Google Moduli. Si carica solo se premi il pulsante: fino ad allora nessun dato viene scambiato con Google.",
       formButton: "Mostra il modulo",
-      fallback: "Il modulo online arriva a breve. Nel frattempo puoi chiedere di associarti scrivendo a info@itaka.space.",
+      fallback: "Il modulo online arriva a breve. Nel frattempo puoi chiedere di associarti scrivendo a ciao@itaka.space.",
     },
   },
   support: {
@@ -231,7 +231,7 @@ export const it = {
     ],
     iban: "IT97D0306909606100000410964",
     copyIban: "Copia l’IBAN",
-    donateNote: "Le donazioni a ItaKA APS, ente del Terzo settore, possono dare diritto ai benefici fiscali previsti dall’articolo 83 del Codice del Terzo settore (D.Lgs. 117/2017), purché fatte con un mezzo tracciabile come il bonifico. Se ti serve una ricevuta, scrivici a info@itaka.space; per i benefici nel tuo caso, chiedi al tuo commercialista.",
+    donateNote: "Le donazioni a ItaKA APS, ente del Terzo settore, possono dare diritto ai benefici fiscali previsti dall’articolo 83 del Codice del Terzo settore (D.Lgs. 117/2017), purché fatte con un mezzo tracciabile come il bonifico. Se ti serve una ricevuta, scrivici a ciao@itaka.space; per i benefici nel tuo caso, chiedi al tuo commercialista.",
     copied: "Copiato",
   },
   transparency: {
@@ -255,12 +255,12 @@ export const it = {
       ["Agenzia nazionale Erasmus+ INDIRE", "EDIT, 2025-1-IT02-KA122-ADU-000315079", "49.384,00 €", "39.507,20 €"],
     ],
     docsLabel: "Documenti",
-    docs: "Statuto e atto costitutivo sono disponibili su richiesta, scrivendo a info@itaka.space.",
+    docs: "Statuto e atto costitutivo sono disponibili su richiesta, scrivendo a ciao@itaka.space.",
   },
   contact: {
     title: "Scrivici. Rispondiamo.",
     items: [
-      { i: "mail", k: "Email", v: "info@itaka.space", href: "mailto:info@itaka.space" },
+      { i: "mail", k: "Email", v: "ciao@itaka.space", href: "mailto:ciao@itaka.space" },
       { i: "at-sign", k: "Instagram", v: "@itaka_aps", href: "https://instagram.com/itaka_aps" },
       { i: "map-pin", k: "Sede legale", v: "Strada Canepina Soriano 18, 01030 Canepina (VT)" },
     ],
@@ -268,13 +268,13 @@ export const it = {
   privacy: {
     title: "Privacy",
     paras: [
-      "**Titolare del trattamento.** ItaKA APS, codice fiscale 90151290567, sede legale in Strada Canepina Soriano 18, 01030 Canepina (VT). Contatto: info@itaka.space.",
+      "**Titolare del trattamento.** ItaKA APS, codice fiscale 90151290567, sede legale in Strada Canepina Soriano 18, 01030 Canepina (VT). Contatto: ciao@itaka.space.",
       "**Niente cookie, niente tracciamento.** Questo sito non usa cookie, strumenti di statistica, pubblicità o servizi che profilano chi lo visita. I caratteri tipografici sono ospitati sul sito stesso. Le uniche informazioni salvate nel tuo browser sono le scelte di tema chiaro o scuro, e restano sul tuo dispositivo.",
       "**Dati tecnici di navigazione.** Il sito è ospitato da Cloudflare, che per farlo funzionare e proteggerlo da abusi tratta dati tecnici come l’indirizzo IP e il tipo di browser. La base giuridica è il legittimo interesse dell’associazione a offrire un sito sicuro. Eventuali trasferimenti di dati fuori dall’Unione europea avvengono con le garanzie previste dal Regolamento (UE) 2016/679.",
       "**Se ci scrivi.** Usiamo il tuo indirizzo email e i dati che ci mandi solo per risponderti, e li conserviamo per il tempo necessario a farlo.",
       "**Domanda di ammissione.** Il modulo per associarsi è realizzato con Google Moduli e si carica solo se lo apri. I dati che inserisci (dati anagrafici e di contatto, motivazione) servono a esaminare la domanda e, se accolta, a tenere il libro degli associati, come previsto dallo statuto e dal Codice del Terzo settore. Li conserviamo per la durata del rapporto associativo e per i tempi richiesti dalla legge. Google li tratta come fornitore del servizio per conto dell’associazione.",
       "**Link esterni.** I link a Instagram e ad altri siti portano a servizi con regole privacy proprie.",
-      "**I tuoi diritti.** Puoi chiedere di accedere ai tuoi dati, correggerli, cancellarli, limitarne il trattamento od opporti, scrivendo a info@itaka.space (articoli 15–21 del Regolamento UE 2016/679). Puoi anche presentare reclamo al Garante per la protezione dei dati personali.",
+      "**I tuoi diritti.** Puoi chiedere di accedere ai tuoi dati, correggerli, cancellarli, limitarne il trattamento od opporti, scrivendo a ciao@itaka.space (articoli 15–21 del Regolamento UE 2016/679). Puoi anche presentare reclamo al Garante per la protezione dei dati personali.",
       "Ultimo aggiornamento: 21 novembre 2026.",
     ],
   },
