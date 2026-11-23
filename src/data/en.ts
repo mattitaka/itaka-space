@@ -5,7 +5,7 @@ export const en = {
     description: "ItaKA APS is a non-profit association working across Tuscia, central Italy. Youth exchanges, training and Erasmus+ projects.",
   },
   home: {
-    title: "Going back to where you’ve never been.",
+    title: "Back to where you've yet to go.",
     subtitle: "ItaKA is a non-profit organisation active across Tuscia, central Italy. We work in non-formal education, with young people and adults, and in international mobility.",
     journeyFrom: "Tuscia",
     journeyTo: "Europe",
