@@ -5,7 +5,7 @@ export const it = {
     description: "ItaKA APS è un’associazione di promozione sociale (APS) della Tuscia. Scambi giovanili, formazione e progetti Erasmus+.",
   },
   home: {
-    title: "Tornare dove non si è mai stati.",
+    title: "Tornare dove non si è ancora stati.",
     subtitle: "ItaKA è un’associazione di promozione sociale (APS) della Tuscia. Lavoriamo nell’educazione non formale, con i giovani e con gli adulti, e nella mobilità internazionale.",
     journeyFrom: "Tuscia",
     journeyTo: "Europa",
